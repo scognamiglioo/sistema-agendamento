@@ -1,4 +1,4 @@
-# sistema-agendamento
+# Sistema de Agendamento em Jakarta EE 
 
 # Importante!
 
