@@ -15,11 +15,54 @@ Se o projeto não funcionar, acesse o arquivo ``jboss-cli`` pelo cmd e digite:
     > Reload the settings
 
 ## MailGun
+https://login.mailgun.com
 
-É importante que o MailGun esteja devidamente configurado
+### 1. Obter credenciais SMTP no Mailgun
 
-- Acesse: https://login.mailgun.com/login para realizar seu login
-- Configure ele no Wildfly
+No painel Mailgun: Sending → Domain Settings → SMTP Credentials
+
+Copie os dados:
+
+- SMTP Host: smtp.mailgun.org
+- Porta: 587
+- Username: postmaster@SEU-DOMINIO
+- Password: a senha gerada
+
+### 2. Criar Mail Session no WildFly (via Admin Console)
+
+1. Abra o painel do WildFly:  
+   `http://localhost:9990`
+
+2. Acesse:  
+   **Configuration → Subsystems → Mail**
+
+3. Clique em **Add** para criar uma nova Mail Session:
+
+   - **JNDI Name:** `java:/MailGun`
+
+4. Dentro da sessão criada, clique em:  
+   **View → Add SMTP Server**
+
+   Preencha:
+
+   - **Outbound Socket Binding:** `mail-gun`
+   - **Username:** *(seu usuário Mailgun)*
+   - **Password:** *(sua senha Mailgun)*
+   - **TLS:** habilitado  
+   - **SSL:** desabilitado
+
+### 3. Criar o Outbound Socket Binding
+
+1. No menu, vá para:  
+   **Configuration → Socket Bindings → standard-sockets → Outbound Socket Bindings → Add**
+
+2. Preencha:
+
+   - **Name:** `mail-gun`
+   - **Remote Host:** `smtp.mailgun.org`
+   - **Remote Port:** `587`
+
+
 
 ## Banco de dados e Persistência
 
