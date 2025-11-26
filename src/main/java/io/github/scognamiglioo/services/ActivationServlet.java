@@ -30,7 +30,7 @@ public class ActivationServlet extends HttpServlet {
             return;
         }
 
-        // Obtém o usuário pelo token
+        // obtém o usuário pelo token
         User user = dataService.getUserByToken(token);
 
         if (user == null) {

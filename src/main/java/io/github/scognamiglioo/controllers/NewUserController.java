@@ -20,9 +20,7 @@ public class NewUserController {
     private User user;
     private List<String> qualities;
 
-    /**
-     * Creates a new instance of NewUserController
-     */
+   
     public NewUserController() {
         user = new User();
     }
@@ -61,7 +59,7 @@ public class NewUserController {
                 user.getUserGroup()
         );
 
-        return "/app/index?faces-redirect=true";
+        return "/redirecionamento?faces-redirect=true";
 
     } catch (IllegalArgumentException e) {
         FacesContext.getCurrentInstance().addMessage(

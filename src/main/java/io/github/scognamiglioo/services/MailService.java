@@ -21,7 +21,6 @@ import java.io.UnsupportedEncodingException;
 public class MailService
         implements MailServiceLocal {
 
-//    @Resource(name = "java:/WebAppActivation")
     @Resource(name = "java:/MailGun")
     private Session mailSession;
 

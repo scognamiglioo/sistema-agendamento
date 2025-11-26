@@ -17,10 +17,8 @@ public interface DataServiceLocal {
     public User createUser(String nome, String cpf, String email, String telefone, String username, String userPassword, String userGroup);
 
     public User createInitialUser(String nome, String cpf, String email, String telefone, String username, String userPassword, String userGroup);
-    
-    
-    Guiche createGuiche(String nome);
 
+    Guiche createGuiche(String nome);
 
     public List<User> getAllUsers();
 
@@ -58,5 +56,16 @@ public interface DataServiceLocal {
     User findUserByUsername(String username);
 
     public boolean cpfExists(String cpfNorm);
+
+    // -------------------------------------------------------
+    List<Funcionario> getAllFuncionarios();
+
+    void updateUser(User u);
+
+    void updateFuncionario(Funcionario f);
+
+    User findUserById(Long id);
+
+    Funcionario findFuncionarioById(Long  id);
 
 }

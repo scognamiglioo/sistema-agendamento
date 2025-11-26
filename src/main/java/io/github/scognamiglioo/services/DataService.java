@@ -432,4 +432,31 @@ public class DataService
         return g;
     }
 
+    // ----------------------------------UPDATE FUNCIONARIO E USERS--------------------------------------------
+    @Override
+    public List<Funcionario> getAllFuncionarios() {
+        return em.createQuery("SELECT f FROM Funcionario f", Funcionario.class)
+                .getResultList();
+    }
+
+    @Override
+    public User findUserById(Long id) {
+        return em.find(User.class, id);
+    }
+
+    @Override
+    public Funcionario findFuncionarioById(Long id) {
+        return em.find(Funcionario.class, id);
+    }
+
+    @Override
+    public void updateUser(User u) {
+        em.merge(u);
+    }
+
+    @Override
+    public void updateFuncionario(Funcionario f) {
+        em.merge(f);
+    }
+
 }

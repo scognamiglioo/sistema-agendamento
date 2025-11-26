@@ -47,7 +47,7 @@ body {
     margin-bottom: 12px;
 
 
-    background: #000000;
+    background: #fff;
     color: #ffffff;
 
     border: 2px solid #000000;
@@ -65,7 +65,36 @@ body {
 }
 
 
+.admin-button,
+.ui-button,
+.ui-widget,
+.ui-state-default {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border: 2px solid #000000 !important;
+    padding: 10px 20px !important;
+    border-radius: 6px !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+    box-shadow: none !important;
+}
 
+/* HOVER */
+.admin-button:hover,
+.ui-button:hover {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+
+.ui-button.ui-state-hover,
+.ui-state-hover,
+.ui-state-focus {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border: 2px solid #000000 !important;
+    box-shadow: none !important;
+}
 
 /* ============================
    RODAPÉ
