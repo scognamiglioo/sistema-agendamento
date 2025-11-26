@@ -26,7 +26,7 @@ public class CpfIdentityStore implements IdentityStore {
     private PasswordHash passwordHash;
 
     @Inject
-    private DataServiceLocal dataService; // ← usar seu método getUsernameByCpf
+    private DataServiceLocal dataService; 
 
     @Override
     public CredentialValidationResult validate(Credential credential) {
@@ -112,4 +112,5 @@ public class CpfIdentityStore implements IdentityStore {
 
     record AuthRecord(String username, String passwordHash, Set<String> roles) {}
 }
+
 
