@@ -15,7 +15,7 @@ import jakarta.mail.internet.MimeBodyPart;
 import jakarta.mail.internet.MimeMessage;
 import jakarta.mail.internet.MimeMultipart;
 import java.io.UnsupportedEncodingException;
-
+import io.github.cdimascio.dotenv.Dotenv;
 
 @Stateless
 public class MailServiceReset
@@ -28,13 +28,15 @@ public class MailServiceReset
     @Override
     public void sendMail(String name, String to, String link)
             throws MessagingException {
-
+       
         MimeMessage mail = new MimeMessage(mailSession);
+        Dotenv dotenv = Dotenv.load();
 
+        String email = dotenv.get("EMAIL");
         try {
             //        mail.setFrom("webappactivation@outlook.com");
             mail.setFrom(
-                    new InternetAddress("julia@sandbox1574627d46c24625b987ef8e29bcbc13.mailgun.org",
+                    new InternetAddress(email,
                             "Sistema de Agendamento")
             );
         } catch (UnsupportedEncodingException ex) {
